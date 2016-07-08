@@ -13,4 +13,7 @@
 
 
 Route::get('/', 'MailerController@getIndex');
-Route::get('/{id}', 'MailerController@oneMail');
+Route::get('/new', 'MailerController@newLetter');
+Route::post('/send', 'MailerController@sendLetter');
+
+Route::get('/{id}', 'MailerController@oneLetter');

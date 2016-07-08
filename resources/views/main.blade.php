@@ -8,9 +8,9 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <button class = "btn btn-success">
+                        <a href="{{asset('/new')}}">  <button class = "btn btn-success">
                             <span class = "glyphicon glyphicon-pencil"></span> Написать письмо
-                        </button>
+                        </button></a>
                         <button class = "btn btn-danger">
                             <span class = "glyphicon glyphicon-trash"></span> Удалить выбранные письма
                         </button>

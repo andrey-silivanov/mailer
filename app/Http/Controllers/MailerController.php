@@ -27,7 +27,7 @@ class MailerController extends Controller
         ]);
     }
 
-    public function oneMail(Request $request)
+    public function oneLetter(Request $request)
     {
         $mail = Mail::where('id', $request->id)->first();
         if (empty($mail)) {
@@ -36,5 +36,19 @@ class MailerController extends Controller
             return view('oneLetter')->with(['title' => $mail->title,
                 'mail' => $mail]);
         }
+    }
+
+    public function newLetter()
+    {
+        return view('newLetter')->with(['title' => 'Новое письмо']);
+    }
+
+    public function sendLetter(Request $request)
+    {
+        $userId = Auth::user()->id;
+        Mail::create(['user_id'=>$userId,
+        'address' => $request->address,
+        'title' => $request->title,
+        'body' => $request-> body]);
     }
 }
