@@ -50,7 +50,7 @@ desired effect
 
     @include('layouts.partials.controlsidebar')
 
- 
+
 
 </div><!-- ./wrapper -->
 
