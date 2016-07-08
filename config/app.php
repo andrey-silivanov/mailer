@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        Zofe\Rapyd\RapydServiceProvider::class,
 
     ],
 
