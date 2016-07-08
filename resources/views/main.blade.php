@@ -8,12 +8,12 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Default Box Example</h3>
-                        <div class="box-tools pull-right">
-                            <!-- Buttons, labels, and many other things can be placed here! -->
-                            <!-- Here is a label for example -->
-                            <span class="label label-primary">Label</span>
-                        </div><!-- /.box-tools -->
+                        <button class = "btn btn-success">
+                            <span class = "glyphicon glyphicon-pencil"></span> Написать письмо
+                        </button>
+                        <button class = "btn btn-danger">
+                            <span class = "glyphicon glyphicon-trash"></span> Удалить выбранные письма
+                        </button>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         {!! $grid !!}

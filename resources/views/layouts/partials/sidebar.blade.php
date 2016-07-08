@@ -8,8 +8,8 @@
         <ul class="sidebar-menu">
             <li class="header">Почта</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('/') }}"> <span>Входящие</span></a></li>
-            <li><a href="#"><span>Отправленные</span></a></li>
+            <li class="active"><a href="{{ url('/') }}"> <span class="glyphicon glyphicon-save"> Входящие</span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-open"> Отправленные</span></a></li>
 
         </ul><!-- /.sidebar-menu -->
     </section>
