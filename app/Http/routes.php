@@ -11,7 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('mail', 'MailerController@getIndex');
+
+Route::get('/', 'MailerController@getIndex');

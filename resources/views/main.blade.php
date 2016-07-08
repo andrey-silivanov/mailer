@@ -16,11 +16,9 @@
                         </div><!-- /.box-tools -->
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        The body of the box
+                        {!! $grid !!}
                     </div><!-- /.box-body -->
-                    <div class="box-footer">
-                        The footer of the box
-                    </div><!-- box-footer -->
+
                 </div><!-- /.box -->
             </div>
         </div>
