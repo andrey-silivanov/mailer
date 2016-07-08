@@ -1,10 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Mail extends Model
 {
-    //
+    protected $fillable = [
+        'user_id', 'address', 'title', 'name', 'body'
+    ];
 }
