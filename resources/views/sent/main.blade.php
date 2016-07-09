@@ -25,7 +25,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             {!! $grid !!}
-                      
+
                     </div><!-- /.box-body -->
                     </form>
                 </div><!-- /.box -->

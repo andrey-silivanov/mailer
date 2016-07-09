@@ -49,10 +49,10 @@
                                              value="{{$one->id}}"/>
                                   </td>
                                   <td>
-                                      <a href ="/letter/{{$one->id}}" >{{$one->fromAddress}}</a>
+                                      <a href ="/inbox/{{$one->id}}" >{{$one->fromAddress}}</a>
                                   </td>
                                   <td>
-                                      <a href ="/letter/{{$one->id}}" >{{$one->subject}}</a>
+                                      <a href ="/inbox/{{$one->id}}" >{{$one->subject}}</a>
                                   </td>
                                   <td>{{$one->date}}</td>
                               </tr>

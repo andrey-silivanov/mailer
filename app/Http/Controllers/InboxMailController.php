@@ -22,23 +22,28 @@ class InboxMailController extends Controller
     {
         $mailbox = new Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', $this->login, $this->password, __DIR__);
 
-
-
         $mailsIds = $mailbox->searchMailbox('ALL');
         if(!$mailsIds) {
             die('Mailbox is empty');
         }
         foreach($mailsIds as $k => $v) {
-            $b[$k] = $mailbox->getMail($v);
+            $mails[$k] = $mailbox->getMail($v);
+        }
+        if(empty($mails)){
+            $mails = " ";
         }
 
-// Get the first message and save its attachment(s) to disk:
-       // $mail = $mailbox->getMail('All');
-
-       //echo $mail->textHtml;
-        //echo "\n\n\n\n\n";
-      //  dd($mailbox);
-
-       return view('inbox.main')->with(['mails' => $b]);
+       return view('inbox.main')->with(['mails' => $mails,
+       'title' => "Входящие"]);
     }
+
+    public function getOneLetter(Request $request)
+    {
+        $mailbox = new Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', $this->login, $this->password, __DIR__);
+        $mail = $mailbox->getMail($request->id);
+       return view('inbox.oneLetter')->with(['mail' => $mail,
+       'title' => $mail->subject
+       ]);
+    }
+
 }

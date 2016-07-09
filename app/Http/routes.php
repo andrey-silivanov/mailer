@@ -14,6 +14,7 @@
  * inbox mail Controller
  */
 Route::get('/', 'InboxMailController@getIndex');
+Route::get('/inbox/{id}', 'InboxMailController@getOneLetter');
 
 
 /*
