@@ -50,11 +50,16 @@ class MailerController extends Controller
         $userId = Auth::user()->id;
         $request['user_id'] = $userId;
         if (Mail::create($request->all())) {
-            Notification::success('Word added');
+            Notification::success('Письмо отправлено');
         } else {
-            Notification::error('Error. Word has not been added');
+            Notification::error('Ошибка. Письмо не отправлено');
         }
 
         return redirect()->back();
+    }
+
+    public function delete(Request $request)
+    {
+        print_r($_POST);
     }
 }

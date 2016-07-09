@@ -158,6 +158,10 @@ return [
 
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Zofe\Rapyd\RapydServiceProvider::class,
+        /*
+         * Notification
+         */
+        Krucas\Notification\NotificationServiceProvider::class,
 
     ],
 
@@ -207,6 +211,7 @@ return [
 
 
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Notification' => Krucas\Notification\Facades\Notification::class,
 
     ],
 
