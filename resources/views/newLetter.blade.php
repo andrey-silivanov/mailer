@@ -15,9 +15,12 @@
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
-                            {!!  Notification::showAll() !!}
+
                         </div>
                     @endif
+                    <div class="col-xs-12">
+                        {!!  Notification::showAll() !!}
+                    </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form class="form-horizontal" method="post" action="/send">
