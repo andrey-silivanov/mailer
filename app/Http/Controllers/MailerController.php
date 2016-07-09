@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SendEmail;
 use App\Models\Mail;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\GridGenerator;
 use App\Http\Requests\MailerRequest;
-use Krucas\Notification\Facades\Notification;
+
 
 class MailerController extends Controller
 {
@@ -47,13 +48,8 @@ class MailerController extends Controller
 
     public function sendLetter(MailerRequest $request)
     {
-        $userId = Auth::user()->id;
-        $request['user_id'] = $userId;
-        if (Mail::create($request->all())) {
-            Notification::success('Письмо отправлено');
-        } else {
-            Notification::error('Ошибка. Письмо не отправлено');
-        }
+
+        SendEmail::send($request);
 
         return redirect()->back();
     }
