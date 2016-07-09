@@ -7,7 +7,17 @@
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Новое письмо</h3>
-
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            {!!  Notification::showAll() !!}
+                        </div>
+                    @endif
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <form class="form-horizontal" method="post" action="/send">
