@@ -12,7 +12,7 @@ use App\Helpers\GridGenerator;
 use App\Http\Requests\MailerRequest;
 
 use Krucas\Notification\Facades\Notification;
-class MailerController extends Controller
+class SentMailController extends Controller
 {
     public function __construct()
     {
@@ -25,7 +25,7 @@ class MailerController extends Controller
         $userId = Auth::user()->id;
         Mail::where('user_id', $userId)->get();
 
-        return view('main')->with(['title' => "Входящие",
+        return view('sent.main')->with(['title' => "Входящие",
             'grid' => $grid,
         ]);
     }
@@ -36,14 +36,14 @@ class MailerController extends Controller
         if (empty($mail)) {
             abort(404);
         } else {
-            return view('oneLetter')->with(['title' => $mail->title,
+            return view('sent.oneLetter')->with(['title' => $mail->title,
                 'mail' => $mail]);
         }
     }
 
     public function newLetter()
     {
-        return view('newLetter')->with(['title' => 'Новое письмо']);
+        return view('sent.newLetter')->with(['title' => 'Новое письмо']);
     }
 
     public function sendLetter(MailerRequest $request)

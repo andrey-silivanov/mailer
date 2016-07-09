@@ -9,6 +9,7 @@
 namespace App\Helpers;
 
 use Zofe\Rapyd\Facades\DataGrid;
+
 class GridGenerator
 {
     static function getAllMail()
@@ -33,4 +34,6 @@ class GridGenerator
 
         return $grid;
     }
+
+
 }

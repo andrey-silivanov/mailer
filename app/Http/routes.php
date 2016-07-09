@@ -10,11 +10,18 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*
+ * inbox mail Controller
+ */
+Route::get('/', 'InboxMailController@getIndex');
 
 
-Route::get('/', 'MailerController@getIndex');
-Route::get('/new', 'MailerController@newLetter');
-Route::post('/send', 'MailerController@sendLetter');
-Route::post('/delete', 'MailerController@delete');
+/*
+ * Send mail Controller
+ */
+Route::get('/sent', 'SentMailController@getIndex');
+Route::get('/new', 'SentMailController@newLetter');
+Route::post('/send', 'SentMailController@sendLetter');
+Route::post('/delete', 'SentMailController@delete');
 
-Route::get('/letter/{id}', 'MailerController@oneLetter');
+Route::get('/letter/{id}', 'SentMailController@oneLetter');

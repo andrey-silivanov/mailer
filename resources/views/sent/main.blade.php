@@ -25,11 +25,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             {!! $grid !!}
-                        {{--    <button type="submit" class="btn btn-danger btn-delete">
-                                <i class="glyphicon glyphicon-trash"></i> Delete
-                            </button>--}}
-
-
+                      
                     </div><!-- /.box-body -->
                     </form>
                 </div><!-- /.box -->
