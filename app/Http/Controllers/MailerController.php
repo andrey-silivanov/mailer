@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Helpers\GridGenerator;
 use App\Http\Requests\MailerRequest;
 
-
+use Krucas\Notification\Facades\Notification;
 class MailerController extends Controller
 {
     public function __construct()
@@ -54,8 +54,23 @@ class MailerController extends Controller
         return redirect()->back();
     }
 
-    public function delete(Request $request)
+    public function delete()
     {
-        print_r($_POST);
+        $error =[];
+        unset($_POST['_token']);
+       foreach ($_POST as $k => $v) {
+           if(!Mail::where('id', $v)->delete()) {
+               $error[] = 1;
+           }
+
+       }
+        if(count($error) == 0) {
+            Notification::success('Письмо удалено');
+        }
+        else {
+            Notification::error('Ошибка. Письмо не удалено');
+        }
+       return redirect()->back();
+
     }
 }

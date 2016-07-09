@@ -15,5 +15,6 @@
 Route::get('/', 'MailerController@getIndex');
 Route::get('/new', 'MailerController@newLetter');
 Route::post('/send', 'MailerController@sendLetter');
+Route::post('/delete', 'MailerController@delete');
 
 Route::get('/letter/{id}', 'MailerController@oneLetter');

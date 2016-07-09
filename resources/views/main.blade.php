@@ -7,18 +7,31 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
+                    <div class="col-xs-12">
+                        {!!  Notification::showAll() !!}
+                    </div>
+                    <form action="/delete" method="post" id="mail-form" name="form_name1">
                     <div class="box-header with-border">
-                        <a href="{{asset('/new')}}">  <button class = "btn btn-success">
+
+                        <a href="{{asset('/new')}}">  <button type="button" class = "btn btn-success">
                             <span class = "glyphicon glyphicon-pencil"></span> Написать письмо
                         </button></a>
-                        <button class = "btn btn-danger">
+                        <button type="submit" class = "btn btn-danger">
                             <span class = "glyphicon glyphicon-trash"></span> Удалить выбранные письма
                         </button>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        {!! $grid !!}
-                    </div><!-- /.box-body -->
 
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            {!! $grid !!}
+                        {{--    <button type="submit" class="btn btn-danger btn-delete">
+                                <i class="glyphicon glyphicon-trash"></i> Delete
+                            </button>--}}
+
+
+                    </div><!-- /.box-body -->
+                    </form>
                 </div><!-- /.box -->
             </div>
         </div>

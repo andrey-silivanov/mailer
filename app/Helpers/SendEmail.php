@@ -24,7 +24,7 @@ class SendEmail
 
         });
 
-        
+
         $request['user_id'] = Auth::user()->id;
 
         if (\App\Models\Mail::create($request->all())) {
