@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\GridGenerator;
+use App\Http\Requests\MailerRequest;
+use Krucas\Notification\Facades\Notification;
 
 class MailerController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
 
     public function getIndex()
@@ -43,12 +45,16 @@ class MailerController extends Controller
         return view('newLetter')->with(['title' => 'Новое письмо']);
     }
 
-    public function sendLetter(Request $request)
+    public function sendLetter(MailerRequest $request)
     {
         $userId = Auth::user()->id;
-        Mail::create(['user_id'=>$userId,
-        'address' => $request->address,
-        'title' => $request->title,
-        'body' => $request-> body]);
+        $request['user_id'] = $userId;
+        if (Mail::create($request->all())) {
+            Notification::success('Word added');
+        } else {
+            Notification::error('Error. Word has not been added');
+        }
+
+        return redirect()->back();
     }
 }

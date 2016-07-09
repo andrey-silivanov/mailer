@@ -24,7 +24,7 @@ class GridGenerator
         $grid->add('address', 'Отправитель')->style('width: 300px');
 
         $grid->add('title', 'Тема')->cell(function ($value, $row) {
-            return '<a href ="/'.$row->id.'" >' . $row->title . '</a>';
+            return '<a href ="/letter/'.$row->id.'" >' . $row->title . '</a>';
         })->style('width: 300px');
         $grid->add('created_at', 'Отправлено')->style('width: 100px');
 

@@ -16,4 +16,4 @@ Route::get('/', 'MailerController@getIndex');
 Route::get('/new', 'MailerController@newLetter');
 Route::post('/send', 'MailerController@sendLetter');
 
-Route::get('/{id}', 'MailerController@oneLetter');
+Route::get('/letter/{id}', 'MailerController@oneLetter');
