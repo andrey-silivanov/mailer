@@ -22,12 +22,12 @@ class GridGenerator
                                                    value="' . $row->id . '"/>';
         })->style('width: 20px');
 
-        $grid->add('address', 'Получатель',true)->cell(function ($value, $row) {
-            return '<a href ="/letter/'.$row->id.'" >' . $row->address . '</a>';
+        $grid->add('address', 'Получатель', true)->cell(function ($value, $row) {
+            return '<a href ="/letter/' . $row->id . '" >' . $row->address . '</a>';
         })->style('width: 300px');
 
         $grid->add('title', 'Тема')->cell(function ($value, $row) {
-            return '<a href ="/letter/'.$row->id.'" >' . $row->title . '</a>';
+            return '<a href ="/letter/' . $row->id . '" >' . $row->title . '</a>';
         })->style('width: 300px');
         $grid->add('created_at', 'Отправлено', true)->style('width: 100px');
 

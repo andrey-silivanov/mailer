@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Helpers\SendEmail;
 use App\Models\Mail;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\GridGenerator;
 use App\Http\Requests\MailerRequest;
-
 use Krucas\Notification\Facades\Notification;
+
 class SentMailController extends Controller
 {
     public function __construct()
@@ -25,7 +24,7 @@ class SentMailController extends Controller
         $userId = Auth::user()->id;
         Mail::where('user_id', $userId)->get();
 
-        return view('sent.main')->with(['title' => "Входящие",
+        return view('sent.main')->with(['title' => "Отправленные",
             'grid' => $grid,
         ]);
     }
@@ -56,21 +55,20 @@ class SentMailController extends Controller
 
     public function delete()
     {
-        $error =[];
+        $error = [];
         unset($_POST['_token']);
-       foreach ($_POST as $k => $v) {
-           if(!Mail::where('id', $v)->delete()) {
-               $error[] = 1;
-           }
+        foreach ($_POST as $k => $v) {
+            if (!Mail::where('id', $v)->delete()) {
+                $error[] = 1;
+            }
 
-       }
-        if(count($error) == 0) {
-            Notification::success('Письмо удалено');
         }
-        else {
+        if (count($error) == 0) {
+            Notification::success('Письмо удалено');
+        } else {
             Notification::error('Ошибка. Письмо не удалено');
         }
-       return redirect()->back();
+        return redirect()->back();
 
     }
 }

@@ -15,7 +15,8 @@
                 <a href="{{url('/sent')}}"><span class="glyphicon glyphicon-open"> Отправленные</span></a>
             </li>
 
-        </ul><!-- /.sidebar-menu -->
+        </ul>
+        <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
 </aside>

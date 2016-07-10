@@ -13,20 +13,23 @@
                 <form action="/inbox/delete" method="post" id="mail-form" name="form_name1">
                     <div class="box-header with-border">
 
-                        <a href="{{asset('/new')}}">  <button type="button" class = "btn btn-success">
-                                <span class = "glyphicon glyphicon-pencil"></span> Написать письмо
-                            </button></a>
-                        <button type="submit" class = "btn btn-danger">
-                            <span class = "glyphicon glyphicon-trash"></span> Удалить выбранные письма
+                        <a href="{{asset('/new')}}">
+                            <button type="button" class="btn btn-success">
+                                <span class="glyphicon glyphicon-pencil"></span> Написать письмо
+                            </button>
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span> Удалить выбранные письма
                         </button>
-                    </div><!-- /.box-header -->
+                    </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th style = "width: 20px">
+                                <th style="width: 20px">
                                     <a id="checkbox"><span class="label label-primary">check</span></a>
                                 </th>
                                 <th style="width: 300px">
@@ -42,27 +45,29 @@
                             </thead>
                             <tbody>
                             @foreach($mails as $one)
-                              <tr>
-                                  <td>
-                                      <input class="input shiftCheckbox" type="checkbox"
-                                             name="letterId.{{$one->id}}."
-                                             value="{{$one->id}}"/>
-                                  </td>
-                                  <td>
-                                      <a href ="/inbox/{{$one->id}}" >{{$one->fromAddress}}</a>
-                                  </td>
-                                  <td>
-                                      <a href ="/inbox/{{$one->id}}" >{{$one->subject}}</a>
-                                  </td>
-                                  <td>{{$one->date}}</td>
-                              </tr>
+                                <tr>
+                                    <td>
+                                        <input class="input shiftCheckbox" type="checkbox"
+                                               name="letterId.{{$one->id}}."
+                                               value="{{$one->id}}"/>
+                                    </td>
+                                    <td>
+                                        <a href="/inbox/{{$one->id}}">{{$one->fromAddress}}</a>
+                                    </td>
+                                    <td>
+                                        <a href="/inbox/{{$one->id}}">{{$one->subject}}</a>
+                                    </td>
+                                    <td>{{$one->date}}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
 
-                    </div><!-- /.box-body -->
+                    </div>
+                    <!-- /.box-body -->
                 </form>
-            </div><!-- /.box -->
+            </div>
+            <!-- /.box -->
         </div>
     </div>
 

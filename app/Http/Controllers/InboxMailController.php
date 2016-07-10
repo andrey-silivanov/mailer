@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\GridGenerator;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use PhpImap\Mailbox;
 use Krucas\Notification\Facades\Notification;
+
 class InboxMailController extends Controller
 {
     private $login;
     private $password;
     private $mailBox;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -26,44 +28,43 @@ class InboxMailController extends Controller
         $mailbox = $this->mailBox;
 
         $mailsIds = $mailbox->searchMailbox('ALL');
-        if(!$mailsIds) {
+        if (!$mailsIds) {
             die('Mailbox is empty');
         }
-        foreach($mailsIds as $k => $v) {
+        foreach ($mailsIds as $k => $v) {
             $mails[$k] = $mailbox->getMail($v);
         }
-        if(empty($mails)){
+        if (empty($mails)) {
             $mails = " ";
         }
 
-       return view('inbox.main')->with(['mails' => $mails,
-       'title' => "Входящие"]);
+        return view('inbox.main')->with(['mails' => $mails,
+            'title' => "Входящие"]);
     }
 
     public function getOneLetter(Request $request)
     {
         $mailbox = $this->mailBox;
         $mail = $mailbox->getMail($request->id);
-       return view('inbox.oneLetter')->with(['mail' => $mail,
-       'title' => $mail->subject
-       ]);
+        return view('inbox.oneLetter')->with(['mail' => $mail,
+            'title' => $mail->subject
+        ]);
     }
 
     public function delete()
     {
         $mailbox = $this->mailBox;
         unset($_POST[0]);
-        $error=[];
-        foreach($_POST as $k => $v) {
-            if(!$mailbox->deleteMail($v)) {
+        $error = [];
+        foreach ($_POST as $k => $v) {
+            if (!$mailbox->deleteMail($v)) {
                 $error[] = 1;
             }
         }
 
-        if(count($error) == 0) {
+        if (count($error) == 0) {
             Notification::success('Письмо удалено');
-        }
-        else {
+        } else {
             Notification::error('Ошибка. Письмо не удалено');
         }
         return redirect()->back();
