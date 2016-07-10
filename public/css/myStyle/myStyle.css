@@ -2,6 +2,11 @@
     margin-top: 7px;
     margin-right: 10px;
 }
+
 .center-menu {
-    float:left;
+    float: left;
+}
+
+#checkbox {
+    cursor: pointer;
 }
