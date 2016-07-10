@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Request;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share('title', 'error');
+        if(Request::is('login')) {
+            view()->share('title', 'login');
+        }
+        elseif(Request::is('register')) {
+            view()->share('title', 'register');
+        }
+        else {
+            view()->share('title', 'error');
+        }
     }
 
     /**
