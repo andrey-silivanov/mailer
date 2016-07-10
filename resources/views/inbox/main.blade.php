@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box">
-                <div class="col-xs-12">
-                    {{--{!!  Notification::showAll() !!}--}}
+                <div class="col-xs-12 notification">
+                    {!!  Notification::showAll() !!}
                 </div>
-                <form action="/delete" method="post" id="mail-form" name="form_name1">
+                <form action="/inbox/delete" method="post" id="mail-form" name="form_name1">
                     <div class="box-header with-border">
 
                         <a href="{{asset('/new')}}">  <button type="button" class = "btn btn-success">

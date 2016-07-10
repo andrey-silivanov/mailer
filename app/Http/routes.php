@@ -15,6 +15,7 @@
  */
 Route::get('/', 'InboxMailController@getIndex');
 Route::get('/inbox/{id}', 'InboxMailController@getOneLetter');
+Route::post('/inbox/delete', 'InboxMailController@delete');
 
 
 /*

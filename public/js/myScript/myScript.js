@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    hideDiv();
     $('.shiftCheckbox').shiftcheckbox();
     $('#checkbox').on('click', function(){
         if($('#checkbox>span').text() == 'check'){
@@ -19,5 +20,9 @@ $(document).ready(function(){
             $('#mail-form').submit();
         }
     });
+
+    function hideDiv(){
+        setTimeout(function(){$('.notification').fadeOut()}, 3000);
+    }
 
 });

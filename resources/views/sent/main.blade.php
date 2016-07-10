@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 notification">
                         {!!  Notification::showAll() !!}
                     </div>
                     <form action="/delete" method="post" id="mail-form" name="form_name1">

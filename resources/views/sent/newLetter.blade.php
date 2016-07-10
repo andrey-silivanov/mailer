@@ -18,7 +18,7 @@
 
                         </div>
                     @endif
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 notification">
                         {!!  Notification::showAll() !!}
                     </div>
                 </div><!-- /.box-header -->
